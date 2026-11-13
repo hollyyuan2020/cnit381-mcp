@@ -4,7 +4,7 @@ from mcp.client.stdio import stdio_client
 from google import genai
 from google.genai import types
 
-MODEL = "gemini-2.5-flash"   # free tier, fast
+MODEL = "gemini-3.8-flash"   # free tier, fast
 
 async def main(question):
     params = StdioServerParameters(command=sys.executable,
