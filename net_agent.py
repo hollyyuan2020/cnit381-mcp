@@ -4,7 +4,7 @@ from mcp.client.stdio import stdio_client
 from google import genai
 from google.genai import types
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-2.5-flash"   # free tier, fast
 
 async def main(question):
     params = StdioServerParameters(command=sys.executable,
@@ -18,7 +18,7 @@ async def main(question):
                          parameters=t.inputSchema) for t in mcp_tools]
             tools = [types.Tool(function_declarations=decls)]
             config = types.GenerateContentConfig(tools=tools)
-            client = genai.Client()
+            client = genai.Client()   # reads GEMINI_API_KEY from the environment
             contents = [types.Content(role="user",
                                       parts=[types.Part(text=question)])]
             while True:
